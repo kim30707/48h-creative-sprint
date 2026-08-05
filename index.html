@@ -34,6 +34,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
+      overflow-x: clip;
       font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
       font-feature-settings: "ss05", "ss07";
       letter-spacing: -0.025em;
@@ -72,6 +73,7 @@
     }
     .hero-copy {
       min-height: 100svh;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -121,8 +123,9 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
+      background: #0c0e0d;
       filter: saturate(.88) contrast(1.04);
     }
     .reel::after {
@@ -133,16 +136,7 @@
       background: linear-gradient(180deg, rgba(0,0,0,.2), transparent 28%, transparent 70%, rgba(0,0,0,.55));
     }
     .reel-label {
-      position: absolute;
-      z-index: 2;
-      left: 22px;
-      bottom: 24px;
-      max-width: calc(100% - 44px);
-      font-size: 11px;
-      line-height: 1.4;
-      letter-spacing: .08em;
-      color: rgba(255,255,255,.82);
-      text-transform: uppercase;
+      display: none;
     }
     .sound {
       position: absolute;
@@ -296,7 +290,7 @@
     @media (max-width: 560px) {
       .nav { height: 66px; }
       .nav-state { font-size: 11px; }
-      .hero h1 { font-size: clamp(54px, 18vw, 84px); }
+      .hero h1 { max-width: 100%; font-size: clamp(40px, 12.5vw, 58px); }
       .hero-copy { padding-top: 116px; }
       .reel { min-height: 88svh; }
       .sound { top: 84px; }
